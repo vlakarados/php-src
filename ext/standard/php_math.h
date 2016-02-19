@@ -13,7 +13,7 @@
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
    | Authors: Jim Winstead <jimw@php.net>                                 |
-   |          Stig Sæther Bakken <ssb@php.net>                            |
+   |          Stig Sï¿½ther Bakken <ssb@php.net>                            |
    +----------------------------------------------------------------------+
 */
 
@@ -44,6 +44,7 @@ PHP_FUNCTION(is_finite);
 PHP_FUNCTION(is_infinite);
 PHP_FUNCTION(is_nan);
 PHP_FUNCTION(pow);
+PHP_FUNCTION(factorial);
 PHP_FUNCTION(sqrt);
 PHP_FUNCTION(srand);
 PHP_FUNCTION(rand);

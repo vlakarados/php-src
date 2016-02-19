@@ -296,6 +296,26 @@ static double php_expm1(double x)
 }
 /* }}}*/
 
+/* {{{ php_factorial
+*/
+static long php_factorial(long n)
+{
+	int c;
+	long result = 1;
+
+	for (c = 1; c <= n; c++)
+		result = result * c;
+
+	/* Below stuff freezes the PHP execution process */
+	/*if (n == 0)
+		return 1;
+	else
+		return(n * php_factorial(n-1));*/
+
+	return result;
+}
+/* }}}*/
+
 /* {{{ proto int abs(int number)
    Return the absolute value of the number */
 PHP_FUNCTION(abs)
@@ -755,6 +775,20 @@ PHP_FUNCTION(pow)
 	pow_function(return_value, zbase, zexp);
 }
 /* }}} */
+
+/* {{{ proto number factorial(int number)
+   Returns product of all whole numbers from 1 to number */
+PHP_FUNCTION(factorial)
+{
+	long number;
+	if (zend_parse_parameters(ZEND_NUM_ARGS(), "l", &number) == FAILURE) {
+		return;
+	}
+
+	RETURN_LONG(php_factorial(number));
+}
+/* }}} */
+
 
 /* {{{ proto float exp(float number)
    Returns e raised to the power of the number */
